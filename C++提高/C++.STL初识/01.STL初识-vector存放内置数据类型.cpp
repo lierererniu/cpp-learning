@@ -40,8 +40,8 @@ void test01()
     for_each(v.begin(), v.end(), mPrint);
 }
 
-//int main() {
-//    test01();
-//    system("pause");
-//    return 0;
-//}
+int main() {
+   test01();
+   system("pause");
+   return 0;
+}
