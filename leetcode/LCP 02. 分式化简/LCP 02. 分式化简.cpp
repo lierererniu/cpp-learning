@@ -11,7 +11,7 @@ public:
     vector<int> fraction(vector<int> &cont) {
         int length = cont.size();
         vector<int> ret = {1, cont[length - 1]};
-        vector<int> ret1 = {0, 0};
+        vector<int> ret1(2);
         for (int i = length - 1; i > 0; --i) {
             ret1[0] = cont[i - 1] * ret[1];
             ret1[1] = ret[1];
