@@ -32,7 +32,7 @@ public:
         }
         TreeNode *left = LowestAncestor(root->left, o1, o2);
         TreeNode *right = LowestAncestor(root->right, o1, o2);
-        if (left != nullptr || right != nullptr){
+        if (left != nullptr && right != nullptr){
             return root;
         }
         return left != nullptr ? left : right;
