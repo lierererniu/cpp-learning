@@ -84,6 +84,14 @@ public:
         }
         return res;
     }
+    // 深度优先搜索
+    int priDepth(TreeNode *root){
+        if (root == nullptr){
+            return 0;
+        }
+        return max(priDepth(root->left), priDepth(root->right)) + 1;
+    }
+
 };
 
 int main() {
@@ -100,7 +108,9 @@ int main() {
     head->right->right->right = new TreeNode(11);
     int res = PreWidthOrder().WidthOrder(head);
     int height = depth().maxdepth(head);
+    int heighr = depth().priDepth(head);
     cout << res << endl;
     cout << height << endl;
+    cout << heighr << endl;
     return 0;
 }
