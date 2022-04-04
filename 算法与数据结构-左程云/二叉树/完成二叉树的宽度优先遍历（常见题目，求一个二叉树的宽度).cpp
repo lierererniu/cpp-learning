@@ -46,7 +46,7 @@ public:
             }
             if (cur->left != nullptr){
                 levelMap[cur->left] = curNodeLevel + 1;
-                que.push(root->left);
+                que.push(cur->left);
             }
             if (cur->right != nullptr){
                 levelMap[cur->right] = curNodeLevel + 1;
@@ -58,6 +58,31 @@ public:
     // 非哈希表方法
     int WidthOrderNoMap(TreeNode *root){
 
+    }
+};
+// 求最大深度
+class depth{
+public:
+    // 广度优先搜索
+    int maxdepth(TreeNode *root){
+        if(root == nullptr){
+            return 0;
+        }
+        int res = 0;
+        queue<TreeNode *> que;
+        que.push(root);
+        while(!que.empty()){
+            int sz = que.size();
+            while(sz){
+                root = que.front();
+                if (root->left != nullptr) que.push(root->left);
+                if (root->right != nullptr) que.push(root->right);
+                que.pop();
+                sz --;
+            }
+            res ++;
+        }
+        return res;
     }
 };
 
@@ -74,6 +99,8 @@ int main() {
     head->right->right->left = new TreeNode(9);
     head->right->right->right = new TreeNode(11);
     int res = PreWidthOrder().WidthOrder(head);
-    cout<<res;
+    int height = depth().maxdepth(head);
+    cout << res << endl;
+    cout << height << endl;
     return 0;
 }
