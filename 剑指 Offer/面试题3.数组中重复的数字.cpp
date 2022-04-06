@@ -35,7 +35,7 @@ public:
         }
     }
     // 方法3：下标O(n)  O(1)
-    static bool FindRepeatNum_fast(vector<int> &arr, int *duplication){
+    static bool FindRepeatNum_fast(vector<int> &arr, int **duplication){
         if (arr.size() == 0){
             return false;
         }
@@ -48,6 +48,7 @@ public:
         for (int i = 0; i < size_; ++i) {
             while (arr[i] != i){
                 if (arr[i] == arr[arr[i]]){
+                    *duplication = &arr[i];
                     return true;
                 }
                 int temp = arr[i];
@@ -64,5 +65,6 @@ int main(){
     int *duplication;
     cout<< Solution03_().FindRepeatNum_Sort(arr) << endl;
     cout<< Solution03_().FindRepeatNum_Hash(arr) << endl;
-    cout << Solution03_::FindRepeatNum_fast(arr, duplication) <<" "<< duplication << endl;
+    bool res = Solution03_::FindRepeatNum_fast(arr, &duplication);
+    cout << res <<"  repeatnum:"<< *duplication << endl;
 }
