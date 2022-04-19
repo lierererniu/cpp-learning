@@ -35,7 +35,7 @@ public:
         }
     }
     // 方法3：下标O(n)  O(1)
-    static bool FindRepeatNum_fast(vector<int> &arr, int **duplication){
+    static bool FindRepeatNum_fast(vector<int> &arr, int &duplication){
         if (arr.size() == 0){
             return false;
         }
@@ -48,7 +48,7 @@ public:
         for (int i = 0; i < size_; ++i) {
             while (arr[i] != i){
                 if (arr[i] == arr[arr[i]]){
-                    *duplication = &arr[i];
+                    duplication = arr[i];
                     return true;
                 }
                 int temp = arr[i];
@@ -60,7 +60,7 @@ public:
     }
 
     //进阶 不修改数组找到重复的数字
-    static bool FindRepeatNum_NoChange(vector<int> &arr){
+    static bool FindRepeatNum_NoChange(vector<int> &arr, int &duplication){
         if(arr.empty()){ return false; }
         int start = 1;
         int end = arr.size() - 1;
@@ -69,7 +69,8 @@ public:
             int count = coutRange(arr, start, middle);
             if(end == start){
                 if(count > 1){
-                    return start;
+                    duplication = start;
+                    return true;
                 }else{
                     break;
                 }
@@ -98,11 +99,11 @@ private:
 
 int main(){
     vector<int> arr = {2,3,1,0,2,5,3};
-    int *duplication;
+    int duplication;
     cout<< Solution03_::FindRepeatNum_Sort(arr) << endl;
     cout<< Solution03_::FindRepeatNum_Hash(arr) << endl;
-    bool res = Solution03_::FindRepeatNum_fast(arr, &duplication);
-    cout << res <<"  repeatnum:"<< *duplication << endl;
-    bool a = Solution03_::FindRepeatNum_NoChange(arr);
-    cout<< a << endl;
+    bool res = Solution03_::FindRepeatNum_fast(arr, duplication);
+    cout << res <<"  repeatnum:"<< duplication << endl;
+    bool a = Solution03_::FindRepeatNum_NoChange(arr, duplication);
+    cout<< a << "  repeatnum:"<< duplication << endl;
 }
