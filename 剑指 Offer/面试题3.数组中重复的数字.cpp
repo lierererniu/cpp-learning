@@ -15,7 +15,7 @@ using namespace std;
 class Solution03_{
 public:
     // 方法1：排序的方法
-    int FindRepeatNum_Sort(vector<int> &arr){
+    static int FindRepeatNum_Sort(vector<int> &arr){
         sort(arr.begin(), arr.end());
         for (int i = 0; i < arr.size(); ++i) {
             if(i != arr[i]){
@@ -24,7 +24,7 @@ public:
         }
     }
     // 方法2：哈希表
-    int FindRepeatNum_Hash(vector<int> &arr){
+    static int FindRepeatNum_Hash(vector<int> &arr){
         map<int, int> hash;
         for (int i = 0; i < arr.size(); ++i) {
             if (hash.count(arr[i])){
@@ -58,13 +58,51 @@ public:
         }
         return false;
     }
+
+    //进阶 不修改数组找到重复的数字
+    static bool FindRepeatNum_NoChange(vector<int> &arr){
+        if(arr.empty()){ return false; }
+        int start = 1;
+        int end = arr.size() - 1;
+        while (end >= start){
+            int middle = ((end - start) >> 1) + start;
+            int count = coutRange(arr, start, middle);
+            if(end == start){
+                if(count > 1){
+                    return start;
+                }else{
+                    break;
+                }
+            }
+            if(count > (middle - start + 1)){
+                end = middle;
+            }else{
+                start = middle + 1;
+            }
+        }
+        return false;
+    }
+
+private:
+    static int coutRange(vector<int> &arr, int start, int end){
+        if(arr.empty()) return 0;
+        int count = 0;
+        for(auto &v:arr){
+            if(v >= start && v <= end){
+                count ++;
+            }
+        }
+        return count;
+    }
 };
 
 int main(){
     vector<int> arr = {2,3,1,0,2,5,3};
     int *duplication;
-    cout<< Solution03_().FindRepeatNum_Sort(arr) << endl;
-    cout<< Solution03_().FindRepeatNum_Hash(arr) << endl;
+    cout<< Solution03_::FindRepeatNum_Sort(arr) << endl;
+    cout<< Solution03_::FindRepeatNum_Hash(arr) << endl;
     bool res = Solution03_::FindRepeatNum_fast(arr, &duplication);
     cout << res <<"  repeatnum:"<< *duplication << endl;
+    bool a = Solution03_::FindRepeatNum_NoChange(arr);
+    cout<< a << endl;
 }
