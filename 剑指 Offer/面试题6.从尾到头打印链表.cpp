@@ -47,7 +47,12 @@ public:
     // }
 
     // 递归法
-
+    void reversePrint_recur(ListNode* head){
+        if(head != nullptr){
+            reversePrint_recur(head->next);
+            ans.push_back(head->val);
+        }
+    }
 
     // vector  insert特性
     vector<int> reversePrint_insert(ListNode* head){
