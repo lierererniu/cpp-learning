@@ -41,17 +41,17 @@ public:
     }
 };
 
-int main() {
-    vector<int> test0, test1, test2;
-    test0 = {1, -2, -3, 4};
-    test1 = {0, 1, -2, -3, -4};
-    test2 = {-1, -2, -3, 0, 1};
-    int length1 = r_Solution1567().getMaxLen(test0);
-    cout << "test0 = {1, -2, -3, 4}:乘积为正数的最长子数组的长度为：" << length1 << endl;
-    int length2 = r_Solution1567().getMaxLen(test1);
-    cout << "test1 = {0,1,-2,-3,-4}:乘积为正数的最长子数组的长度为：" << length2 << endl;
-    int length3 = r_Solution1567().getMaxLen(test2);
-    cout << "test2 = {-1,-2,-3,0,1}:乘积为正数的最长子数组的长度为：" << length3 << endl;
-    system("pause");
-    return 0;
-}
+//int main() {
+//    vector<int> test0, test1, test2;
+//    test0 = {1, -2, -3, 4};
+//    test1 = {0, 1, -2, -3, -4};
+//    test2 = {-1, -2, -3, 0, 1};
+//    int length1 = r_Solution1567().getMaxLen(test0);
+//    cout << "test0 = {1, -2, -3, 4}:乘积为正数的最长子数组的长度为：" << length1 << endl;
+//    int length2 = r_Solution1567().getMaxLen(test1);
+//    cout << "test1 = {0,1,-2,-3,-4}:乘积为正数的最长子数组的长度为：" << length2 << endl;
+//    int length3 = r_Solution1567().getMaxLen(test2);
+//    cout << "test2 = {-1,-2,-3,0,1}:乘积为正数的最长子数组的长度为：" << length3 << endl;
+//    system("pause");
+//    return 0;
+//}

@@ -19,7 +19,7 @@ public:
         vector<bool> dp(s.size() + 1, false);
         dp[0] = true;
         // 遍历背包
-        for(int i = 1; i < s.size(); ++i){
+        for(int i = 1; i <= s.size(); ++i){
             for(int j = 0; j < i; ++j){ // 遍历物品  这里指遍历长度i的字符串的再拆分
                 string temp = s.substr(j, i -j);
                 if(wordset.find(temp) != wordset.end() && dp[j]){

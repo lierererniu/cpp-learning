@@ -40,9 +40,9 @@ public:
     }
 };
 
-int main() {
-    string s = "3242415";
-    int length = r_Solution1542().longestAwesome(s);
-    cout << "最长超赞字符串长度为：" << length << endl;
-    return 0;
-}
+//int main() {
+//    string s = "3242415";
+//    int length = r_Solution1542().longestAwesome(s);
+//    cout << "最长超赞字符串长度为：" << length << endl;
+//    return 0;
+//}

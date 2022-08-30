@@ -1,0 +1,6 @@
+D:/algReview/cmake-build-debug/CMakeFiles/algReview.dir
+D:/algReview/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/algReview/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/algReview/cmake-build-debug/review/CMakeFiles/review.dir
+D:/algReview/cmake-build-debug/review/CMakeFiles/edit_cache.dir
+D:/algReview/cmake-build-debug/review/CMakeFiles/rebuild_cache.dir

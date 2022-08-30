@@ -28,17 +28,17 @@ public:
         return arr;
     }
 };
-int main(){
-    int rows = 2;
-    int cols = 2;
-    int rCenter = 0;
-    int cCenter = 1;
-    vector<vector<int>> result = r_Solution1030().allCellsDistOrder(rows, cols, rCenter, cCenter);
-    for (auto & it : result) {
-        for (int & bit : it) {
-            cout<< bit;
-        }
-        cout<<endl;
-    }
-    return 0;
-}
+//int main(){
+//    int rows = 2;
+//    int cols = 2;
+//    int rCenter = 0;
+//    int cCenter = 1;
+//    vector<vector<int>> result = r_Solution1030().allCellsDistOrder(rows, cols, rCenter, cCenter);
+//    for (auto & it : result) {
+//        for (int & bit : it) {
+//            cout<< bit;
+//        }
+//        cout<<endl;
+//    }
+//    return 0;
+//}
